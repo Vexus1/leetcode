@@ -46,7 +46,6 @@ class Solution:
         
         for x in s:
             count[ord(x) - ord('a')] += 1 # The ord() function returns the number representing the unicode code of a specified character.
-            print(count)
         
         for x in t:
             count[ord(x) - ord('a')] -= 1
@@ -57,6 +56,36 @@ class Solution:
         
         return True
     
+solution = Solution()
+s1 = "anagram"
+t1 = "nagaram"
+s2 = "rat"
+t2 = "car"
+print(solution.isAnagram(s1,t1))
+print(solution.isAnagram(s2,t2))
+
+
+# Hash Table using collections library
+from collections import defaultdict
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        count = defaultdict(int)
+        
+        # Count the frequency of characters in string s
+        for x in s:
+            count[x] += 1
+        
+        # Decrement the frequency of characters in string t
+        for x in t:
+            count[x] -= 1
+        
+        # Check if any character has non-zero frequency
+        for val in count.values():
+            if val != 0:
+                return False
+        
+        return True
+
 solution = Solution()
 s1 = "anagram"
 t1 = "nagaram"
