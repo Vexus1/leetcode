@@ -7,5 +7,6 @@ class Solution:
         ths =  ["", "M", "MM", "MMM"]
 
         return ths[floor(num / 1000)] + hrns[floor((num % 1000) / 100)] + tens[floor((num % 100) / 10)] + ones[floor(num % 10)]
+
 solution = Solution()
 print(solution.intToRoman(num = 58))
