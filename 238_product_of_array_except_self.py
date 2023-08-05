@@ -1,4 +1,3 @@
-from collections import defaultdict
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         len_nums = len(nums)
