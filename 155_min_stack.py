@@ -25,9 +25,11 @@ class MinStack:
         else:
             return []
 
-val = 5
 obj = MinStack()
-obj.push(val)
-obj.pop()
-param_3 = obj.top()
-param_4 = obj.get_min()
+print(obj.push(-2))
+print(obj.push(0))
+print(obj.push(-3))
+print(obj.get_min())   # return -3
+print(obj.pop())
+print(obj.top())       # return 0
+print(obj.get_min())   # return -2
