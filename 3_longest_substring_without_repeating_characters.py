@@ -1,38 +1,21 @@
 import unittest
-# from collections import defaultdict
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        if len(s) == 0:
-            return 0
-        repetitions = sorted(list(set(s)))
-        rep_dict = {i: 0 for i in repetitions}
-        # rep_dict = defaultdict()
-        substrings_list = []
-        substring = ''
-        for i in range(len(s)):
-            rep_dict = {i: 0 for i in repetitions}
-            for char in s[i:]:
-                # if char in repetitions:
-                rep_dict[char] += 1
-                # print(rep_dict)
-                if rep_dict[char] > 1:
-                    # substrings_list.append(substring)
-                    substring = ''
-                    rep_dict = {i: 0 for i in repetitions}
-                    rep_dict[char] = 1
-                # rep_dict[char] += 1
-                substring += char
-                # print(substring)
-                # substrings_list.append(substring)
-                substrings_list.append(substring)
-        # print(substrings_list)
-        print(substrings_list)
-        # print(max(substrings_list))
-        # return max(substrings_list)
-
-
-
+        max_len = 0
+        char_set = []
+        left = 0
+        for right in range(len(s)):
+            if s[right] not in char_set:
+                char_set.append(s[right])
+                max_len = max(max_len, right - left + 1)
+            else:
+                while s[right] in char_set:
+                    char_set.remove(s[left])
+                    left += 1
+                char_set.append(s[right])
+        return max_len
+        
 
 sol = Solution()
 class Test(unittest.TestCase):
@@ -56,4 +39,4 @@ class Test(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
-    print("5/5 passed")
+    print("6/6 passed")
