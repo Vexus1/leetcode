@@ -19,8 +19,6 @@ class Solution:
         return result
 
 
-
-
 sol = Solution()
 class Test(unittest.TestCase):
     def test1(self):
