@@ -1,0 +1,19 @@
+import unittest
+
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return " ".join([i[::-1] for i in s.split()])
+
+
+sol = Solution()
+class Test(unittest.TestCase):
+    def test1(self):
+        assert sol.reverseWords(s = "Let's take LeetCode contest") ==  "s'teL ekat edoCteeL tsetnoc"
+
+    def test2(self):
+        assert sol.reverseWords(s = "Mr Ding") ==  "rM gniD"
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
+    print('passed 2/2')
